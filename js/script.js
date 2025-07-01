@@ -1,6 +1,6 @@
 
     // URL Web App - Ganti dengan URL Anda
-    const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxdWJTzf0K1Syl-B-ChaxMinrqj_rcoQB9eCOIJpeD3cdE0-M_GboS1MMEE3s2VeY7F/exec';
+    const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbxTe2RO8D7n1JkhI3jR_55y3wcdRioaQB7fWZD068930-5Z1dqM8v2Wy1L8pChdcQYL_g/exec';
     
     // Variabel untuk menyimpan data asli
     let allAttendanceData = [];
