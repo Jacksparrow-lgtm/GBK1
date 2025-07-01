@@ -50,22 +50,19 @@
       showLoading(statusDiv, '⏳ Mengirim data...');
 
       try {
-        const payload = {
-          karyawan: karyawan,
-          aksi: aksi,
-          tanggal: tanggal,
-          waktu: waktu
-        };
+        const formData = new FormData();
+formData.append('karyawan', karyawan);
+formData.append('aksi', aksi);
+formData.append('tanggal', tanggal);
+formData.append('waktu', waktu);
 
-        const response = await fetch(WEB_APP_URL, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(payload)
-        });
+const response = await fetch(WEB_APP_URL, {
+  method: 'POST',
+  body: formData
+});
 
-        const result = await response.json();
+const result = await response.json();
+
         
         if (result.status !== 'success') {
           throw new Error(result.message || 'Gagal menyimpan data');
