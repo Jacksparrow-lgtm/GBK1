@@ -1,0 +1,348 @@
+
+    :root {
+      --primary: #4361ee;
+      --secondary: #3f37c9;
+      --success: #4cc9f0;
+      --danger: #f72585;
+      --warning: #f8961e;
+      --light: #f8f9fa;
+      --dark: #212529;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: #f8f9fa;
+      margin: 0;
+      padding: 0;
+      -webkit-text-size-adjust: 100%;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    
+    header {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      font-weight: 600;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .form-group {
+      margin-bottom: 16px;
+    }
+    
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: var(--dark);
+    }
+    
+    input[type="text"],
+    input[type="date"],
+    select {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: all 0.2s ease;
+      -webkit-appearance: none;
+      background-color: white;
+    }
+    
+    input[type="text"]:focus,
+    input[type="date"]:focus,
+    select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+    }
+    
+    .filter-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    
+    .filter-group {
+      flex: 1;
+      min-width: 200px;
+    }
+    
+    .button-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    
+    button {
+      padding: 14px 16px;
+      font-size: 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      flex: 1;
+      min-width: 140px;
+      user-select: none;
+      touch-action: manipulation;
+    }
+    
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+    
+    .btn-primary:active {
+      background-color: var(--secondary);
+      transform: translateY(1px);
+    }
+    
+    .btn-success {
+      background-color: var(--success);
+      color: white;
+    }
+    
+    .btn-warning {
+      background-color: var(--warning);
+      color: white;
+    }
+    
+    .btn-danger {
+      background-color: var(--danger);
+      color: white;
+    }
+    
+    .btn-reset {
+      background-color: #6c757d;
+      color: white;
+    }
+    
+    #status {
+      padding: 14px;
+      border-radius: 8px;
+      margin-bottom: 16px;
+      text-align: center;
+      font-size: 16px;
+    }
+    
+    .success {
+      background-color: rgba(76, 201, 240, 0.15);
+      color: #0c5460;
+      border: 1px solid rgba(76, 201, 240, 0.3);
+    }
+    
+    .error {
+      background-color: rgba(247, 37, 133, 0.15);
+      color: #721c24;
+      border: 1px solid rgba(247, 37, 133, 0.3);
+    }
+    
+    .loading {
+      background-color: rgba(248, 150, 30, 0.15);
+      color: #856404;
+      border: 1px solid rgba(248, 150, 30, 0.3);
+    }
+    
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 16px;
+      font-size: 15px;
+    }
+    
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    th {
+      background-color: var(--primary);
+      color: white;
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+    }
+    
+    tr:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+    
+    .tabs {
+      display: flex;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    .tab {
+      padding: 12px 20px;
+      cursor: pointer;
+      font-weight: 600;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s;
+      color: #6c757d;
+      white-space: nowrap;
+    }
+    
+    .tab.active {
+      border-bottom: 3px solid var(--primary);
+      color: var(--primary);
+    }
+    
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    .tab-content.active {
+      display: block;
+    }
+    
+    .no-data {
+      text-align: center;
+      padding: 24px;
+      color: #6c757d;
+      font-style: italic;
+      font-size: 16px;
+    }
+    
+    /* QR Scanner Styles */
+    #qr-reader {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      display: none;
+    }
+    
+    #qr-reader video {
+      width: 100%;
+      border: 2px solid var(--primary);
+      border-radius: 8px;
+      background: black;
+    }
+    
+    #qr-reader__dashboard_section_csr {
+      margin-top: 10px;
+      text-align: center;
+    }
+    
+    #qr-reader__dashboard_section_csr button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 6px;
+      margin: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    
+    #qr-reader__dashboard_section_csr select {
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #ddd;
+      margin: 4px;
+      font-size: 14px;
+    }
+    
+    /* Mobile Specific Styles */
+    @media (max-width: 768px) {
+      .container {
+        padding: 12px;
+      }
+      
+      header {
+        padding: 16px 0;
+      }
+      
+      h1 {
+        font-size: 1.5rem;
+      }
+      
+      .button-group {
+        flex-direction: column;
+      }
+      
+      button {
+        width: 100%;
+        padding: 16px;
+      }
+      
+      .filter-row {
+        flex-direction: column;
+        gap: 12px;
+      }
+      
+      .tab {
+        padding: 10px 16px;
+        font-size: 14px;
+      }
+      
+      #qr-reader {
+        width: calc(100vw - 24px);
+        margin-left: -12px;
+      }
+      
+      input, select {
+        font-size: 16px !important;
+      }
+    }
+    
+    /* iPhone Notch Safe Area */
+    @supports (padding: max(0px)) {
+      body {
+        padding-left: max(12px, env(safe-area-inset-left));
+        padding-right: max(12px, env(safe-area-inset-right));
+      }
+      
+      header {
+        padding-left: max(20px, env(safe-area-inset-left));
+        padding-right: max(20px, env(safe-area-inset-right));
+      }
+    }
+    
+    /* Disable hover effects on touch devices */
+    @media (hover: none) {
+      button:hover, button:focus {
+        transform: none !important;
+        box-shadow: none !important;
+      }
+    }
+  

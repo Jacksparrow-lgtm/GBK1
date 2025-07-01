@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Absensi Karyawan</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="assets/icon-192.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Absensi Karyawan</h1>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="tabs">
+      <div class="tab active" onclick="openTab('input')">Input Absensi</div>
+      <div class="tab" onclick="openTab('report')">Laporan Absensi</div>
+    </div>
+
+    <div id="input" class="tab-content active">
+      <div class="card">
+        <div class="form-group">
+          <label for="karyawan">Nama Karyawan:</label>
+          <input type="text" id="karyawan" placeholder="Masukkan nama lengkap" autocomplete="name">
+        </div>
+
+        <div class="button-group">
+          <button class="btn-primary" onclick="catatAksi('Masuk Kerja')">Masuk Kerja</button>
+          <button class="btn-primary" onclick="catatAksi('Pulang Kerja')">Pulang Kerja</button>
+          <button class="btn-success" onclick="catatAksi('Beli Makan')">Beli Makan</button>
+          <button class="btn-warning" onclick="catatAksi('Kembali ke Ruangan')">Kembali ke Ruangan</button>
+          <button class="btn-danger" onclick="catatAksi('Rokok')">Rokok</button>
+        </div>
+
+        <div id="status"></div>
+      </div>
+      
+      <div class="card" style="margin-top: 16px;">
+        <h3 style="margin-top: 0;">Scan QR Code</h3>
+        <div style="text-align: center;">
+          <button id="startScanner" class="btn-primary" style="margin-bottom: 12px;">Mulai Scanner QR</button>
+          <div id="qr-reader"></div>
+          <div id="qr-reader-results"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="report" class="tab-content">
+      <div class="card">
+        <h2 style="margin-top: 0;">Laporan Absensi</h2>
+        
+        <div class="filter-row">
+          <div class="filter-group">
+            <label for="filterNama">Cari Nama:</label>
+            <input type="text" id="filterNama" placeholder="Nama karyawan" onkeyup="filterLaporan()">
+          </div>
+          
+          <div class="filter-group">
+            <label for="filterAksi">Filter Aksi:</label>
+            <select id="filterAksi" onchange="filterLaporan()">
+              <option value="">Semua Aksi</option>
+              <option value="Masuk Kerja">Masuk Kerja</option>
+              <option value="Pulang Kerja">Pulang Kerja</option>
+              <option value="Beli Makan">Beli Makan</option>
+              <option value="Kembali ke Ruangan">Kembali ke Ruangan</option>
+              <option value="Rokok">Rokok</option>
+            </select>
+          </div>
+          
+          <div class="filter-group">
+            <label for="filterTanggal">Filter Tanggal:</label>
+            <input type="date" id="filterTanggal" onchange="filterLaporan()">
+          </div>
+        </div>
+        
+        <div class="button-group">
+          <button class="btn-reset" onclick="resetFilters()">Reset Filter</button>
+          <button class="btn-primary" onclick="exportToExcel()">Export ke Excel</button>
+        </div>
+        
+        <div id="loadingReport" style="text-align: center; display: none; padding: 16px;">
+          <div style="display: inline-block; padding: 12px; background: #f8f9fa; border-radius: 8px;">
+            <p style="margin: 0;">Memuat data...</p>
+          </div>
+        </div>
+        
+        <div id="reportContent">
+          <div style="overflow-x: auto; -webkit-overflow-scrolling: touch;">
+            <table id="reportTable">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>Nama Karyawan</th>
+                  <th>Aksi</th>
+                  <th>Tanggal</th>
+                  <th>Waktu</th>
+                </tr>
+              </thead>
+              <tbody id="reportData">
+                <tr>
+                  <td colspan="5" class="no-data">Data absensi akan muncul di sini</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="noDataMessage" class="no-data" style="display: none;">
+            Tidak ada data yang sesuai dengan filter
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QR Scanner Library -->
+  <script src="https://unpkg.com/html5-qrcode@2.3.4/html5-qrcode.min.js"></script>
+
+  
+<script src="js/script.js"></script>
+</body>
+</html>
